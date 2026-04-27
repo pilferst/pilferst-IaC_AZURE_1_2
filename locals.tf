@@ -18,7 +18,7 @@ locals {
     }
     spoke2 = {
       id = module.create_vnet_subnet["spoke2"].vnet_id,
-      name = module.create_vnet_subnet["spoke2"].vnet_name, }
+    name = module.create_vnet_subnet["spoke2"].vnet_name, }
 
   }
 

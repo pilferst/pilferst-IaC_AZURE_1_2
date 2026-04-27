@@ -26,6 +26,17 @@ variable "vnets" {
   }))
 }
 
+variable "number_of_lb" {
+  description = "Number of load balancers"
+  type        = number
+  default     = 1
+  validation {
+    condition = (var.number_of_lb > 0 &&
+    var.number_of_lb < 10)
+    error_message = "Allowed values: integers from 1 to 9"
+  }
+}
+
 
 variable "tags" {
   description = "Additional tags to apply to all resources"
