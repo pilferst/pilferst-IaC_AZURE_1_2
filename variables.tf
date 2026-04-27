@@ -1,15 +1,15 @@
-variable "resource_group_name" {
+variable "rg_name" {
   description = "Resource group name for testing"
   type        = string
   default     = "rg-iac-azure-1-2"
 }
 
-variable "resource_group_location_main" {
+variable "location" {
   description = "Resource group location"
   type        = string
   default     = "westeurope"
   validation {
-    condition     = contains(["eastus", "westeurope", "centralus", "northeurope"], var.resource_group_location_main)
+    condition     = contains(["eastus", "westeurope", "centralus", "northeurope"], var.location)
     error_message = "Allowed regions: eastus, westeurope, centralus, northeurope."
   }
 }

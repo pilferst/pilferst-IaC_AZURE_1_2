@@ -1,6 +1,6 @@
 resource "azurerm_lb" "main" {
   name                = "internal-lb-${var.id}"
-  resource_group_name = var.resource_group_name
+  resource_group_name = var.rg_name
   location            = var.location
   sku                 = "Standard"
 
