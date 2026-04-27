@@ -75,3 +75,24 @@ module "nsg-frontend02" {
   tags                = local.tags
 }
 
+module "force-tunnel-spoke2-backend01" {
+  source = "./modules/route_table"
+
+  name                = "rt-spoke2-backend01"
+  location            = var.resource_group_location_main
+  resource_group_name = azurerm_resource_group.terraform_resource_group.name
+  subnet_id           = module.create_vnet_subnet["spoke2"].subnet_ids["backend01"]
+  next_hop_in_ip_address = var.next_hop_in_ip_address
+  tags                = local.tags
+}
+
+module "force-tunnel-spoke2-backend02" {
+  source = "./modules/route_table"
+
+  name                = "rt-spoke2-backend02"
+  location            = var.resource_group_location_main
+  resource_group_name = azurerm_resource_group.terraform_resource_group.name
+  subnet_id           = module.create_vnet_subnet["spoke2"].subnet_ids["backend02"]
+  next_hop_in_ip_address = var.next_hop_in_ip_address
+  tags                = local.tags
+}

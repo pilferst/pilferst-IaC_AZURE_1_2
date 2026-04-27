@@ -77,6 +77,11 @@ variable "nsg_rules" {
   default = {}
 }
 
+variable "next_hop_in_ip_address" {
+  description = "ip address of the feature gateway"
+  type = string
+  default = "10.0.1.5"
+}
 
 
 variable "tags" {
