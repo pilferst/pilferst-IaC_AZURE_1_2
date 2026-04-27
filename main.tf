@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "terraform_resource_group" {
 module "create_vnet_subnet" {
   for_each = var.vnets
 
-  source = "./modules/create_vnet_subnet"
+  source = "./modules/vnet"
 
   name                = each.value.name
   location            = var.resource_group_location_main
@@ -25,7 +25,7 @@ module "create_vnet_peering" {
     "hub-spoke1" = { local_key = "hub", remote_key = "spoke1" }
     "hub-spoke2" = { local_key = "hub", remote_key = "spoke2" }
   }
-  source     = "./modules/create_vnet_peering"
+  source     = "./modules/peering"
   local_id   = local.peering_id_name[each.value.local_key].id
   local_name = local.peering_id_name[each.value.local_key].name
 
@@ -34,7 +34,7 @@ module "create_vnet_peering" {
 }
 
 module "create_lb" {
-  source = "./modules/create_lb"
+  source = "./modules/lb"
   resource_group_name = azurerm_resource_group.terraform_resource_group.name
   location            = var.resource_group_location_main
   count = var.number_of_lb
@@ -43,7 +43,7 @@ module "create_lb" {
 }
 
 module "create_private_dns_zone" {
-  source = "./modules/create_private_dns_zone"
+  source = "./modules/private_dns"
   resource_group_name = azurerm_resource_group.terraform_resource_group.name
   location            = var.resource_group_location_main
   private_dns_zone_name = var.private_dns_zone_name
@@ -54,7 +54,7 @@ module "create_private_dns_zone" {
 
 
 module "nsg-frontend01" {
-  source = "./modules/create_nsg"
+  source = "./modules/nsg"
 
   name                = "nsg-frontend01"
   location            = var.resource_group_location_main
@@ -65,7 +65,7 @@ module "nsg-frontend01" {
 }
 
 module "nsg-frontend02" {
-  source = "./modules/create_nsg"
+  source = "./modules/nsg"
 
   name                = "nsg-frontend02"
   location            = var.resource_group_location_main
