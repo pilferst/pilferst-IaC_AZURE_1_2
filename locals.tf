@@ -22,7 +22,7 @@ locals {
 
   }
   lb_subnet_id = module.vnet["hub"].subnet_ids["lb_frontend"]
-  server_subnet_id = {"spoke1" = module.vnet["spoke1"].vnet_id,
-                            "spoke2" = module.vnet["spoke2"].vnet_id} 
+  server_subnet_id = { "spoke1" = module.vnet["spoke1"].vnet_id,
+  "spoke2" = module.vnet["spoke2"].vnet_id }
 
 }

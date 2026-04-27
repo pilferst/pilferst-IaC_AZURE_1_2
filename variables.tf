@@ -20,8 +20,8 @@ variable "vnets" {
     name          = string
     address_space = list(string)
     subnets = map(object({
-      name           = string
-      address_prefixes= list(string)
+      name             = string
+      address_prefixes = list(string)
       nsg_name         = optional(string, null)
     }))
   }))
@@ -53,22 +53,22 @@ variable "private_dns_zone_auto_registration" {
 variable "nsg_rules" {
   description = "Map of NSG name → list of security rules"
   type = map(list(object({
-    name                       = string
-    priority                   = number
-    direction                  = string
-    access                     = string
-    protocol                   = string
+    name      = string
+    priority  = number
+    direction = string
+    access    = string
+    protocol  = string
 
     # Ports
-    source_port_ranges          = optional(list(string), ["*"])
-    destination_port_ranges     = optional(list(string), ["*"])
+    source_port_ranges      = optional(list(string), ["*"])
+    destination_port_ranges = optional(list(string), ["*"])
 
     # prefixes
     source_address_prefixes      = optional(list(string), ["*"])
     destination_address_prefixes = optional(list(string), ["*"])
 
     # description
-    description                 = optional(string, null)
+    description = optional(string, null)
 
     # extra
     source_application_security_group_ids      = optional(list(string), null)
@@ -79,8 +79,8 @@ variable "nsg_rules" {
 
 variable "next_hop_in_ip_address" {
   description = "ip address of the feature gateway"
-  type = string
-  default = "10.0.1.5"
+  type        = string
+  default     = "10.0.1.5"
 }
 
 
