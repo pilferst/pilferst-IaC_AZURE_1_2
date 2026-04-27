@@ -51,3 +51,27 @@ module "create_private_dns_zone" {
   server_subnet_id = local.server_subnet_id
 
 }
+
+
+module "nsg-frontend01" {
+  source = "./modules/create_nsg"
+
+  name                = "nsg-frontend01"
+  location            = var.resource_group_location_main
+  resource_group_name = azurerm_resource_group.terraform_resource_group.name
+  subnet_id           = module.create_vnet_subnet["spoke1"].subnet_ids["frontend01"]
+  security_rules      = lookup(var.nsg_rules, "nsg-frontend01", [])
+  tags                = local.tags
+}
+
+module "nsg-frontend02" {
+  source = "./modules/create_nsg"
+
+  name                = "nsg-frontend02"
+  location            = var.resource_group_location_main
+  resource_group_name = azurerm_resource_group.terraform_resource_group.name
+  subnet_id           = module.create_vnet_subnet["spoke1"].subnet_ids["frontend02"]
+  security_rules      = lookup(var.nsg_rules, "nsg-frontend02", [])
+  tags                = local.tags
+}
+

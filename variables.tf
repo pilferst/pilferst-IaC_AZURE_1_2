@@ -22,6 +22,7 @@ variable "vnets" {
     subnets = map(object({
       name           = string
       address_prefix = list(string)
+      nsg_name         = optional(string, null)
     }))
   }))
 }
@@ -48,6 +49,35 @@ variable "private_dns_zone_auto_registration" {
   type        = bool
   default     = false
 }
+
+variable "nsg_rules" {
+  description = "Map of NSG name → list of security rules"
+  type = map(list(object({
+    name                       = string
+    priority                   = number
+    direction                  = string
+    access                     = string
+    protocol                   = string
+
+    # Ports
+    source_port_ranges          = optional(list(string), ["*"])
+    destination_port_ranges     = optional(list(string), ["*"])
+
+    # prefixes
+    source_address_prefixes      = optional(list(string), ["*"])
+    destination_address_prefixes = optional(list(string), ["*"])
+
+    # description
+    description                 = optional(string, null)
+
+    # extra
+    source_application_security_group_ids      = optional(list(string), null)
+    destination_application_security_group_ids = optional(list(string), null)
+  })))
+  default = {}
+}
+
+
 
 variable "tags" {
   description = "Additional tags to apply to all resources"
