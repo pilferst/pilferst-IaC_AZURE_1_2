@@ -10,19 +10,19 @@ locals {
   }, var.tags)
   peering_id_name = {
     hub = {
-      id = module.create_vnet_subnet["hub"].vnet_id
-    name = module.create_vnet_subnet["hub"].vnet_name, },
+      id = module.vnet["hub"].vnet_id
+    name = module.vnet["hub"].vnet_name, },
     spoke1 = {
-      id   = module.create_vnet_subnet["spoke1"].vnet_id,
-      name = module.create_vnet_subnet["spoke1"].vnet_name,
+      id   = module.vnet["spoke1"].vnet_id,
+      name = module.vnet["spoke1"].vnet_name,
     }
     spoke2 = {
-      id = module.create_vnet_subnet["spoke2"].vnet_id,
-    name = module.create_vnet_subnet["spoke2"].vnet_name, }
+      id = module.vnet["spoke2"].vnet_id,
+    name = module.vnet["spoke2"].vnet_name, }
 
   }
-  lb_subnet_id = module.create_vnet_subnet["hub"].subnet_ids["lb_frontend"]
-  server_subnet_id = {"spoke1" = module.create_vnet_subnet["spoke1"].vnet_id,
-                            "spoke2" = module.create_vnet_subnet["spoke2"].vnet_id} 
+  lb_subnet_id = module.vnet["hub"].subnet_ids["lb_frontend"]
+  server_subnet_id = {"spoke1" = module.vnet["spoke1"].vnet_id,
+                            "spoke2" = module.vnet["spoke2"].vnet_id} 
 
 }

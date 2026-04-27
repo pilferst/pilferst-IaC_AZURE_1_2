@@ -21,7 +21,7 @@ variable "vnets" {
     address_space = list(string)
     subnets = map(object({
       name           = string
-      address_prefix = list(string)
+      address_prefixes= list(string)
       nsg_name         = optional(string, null)
     }))
   }))

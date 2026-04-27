@@ -22,7 +22,7 @@ variable "subnets" {
   description = "Map of subnets inside this VNet"
   type = map(object({
     name             = string
-    address_prefix = list(string)
+    address_prefixes = list(string)
   }))
   default = {}
 }
