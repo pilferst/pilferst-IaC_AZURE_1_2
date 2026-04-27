@@ -72,3 +72,15 @@ Azure subscription
 | `tags`                    | Additional resource tags                 | `{}`                    |
 
 Full variable documentation is available in [`variables.tf`](variables.tf).
+
+
+## 📸 Screenshots
+
+### Deployed Resource Group
+![Resource Group](screenshots/01.png)
+
+### Hub-and-Spoke VNet Architecture
+![HUB Subnets](screenshots/02.png)
+
+### Load Balancer
+![HUB Peering](screenshots/03.png)
