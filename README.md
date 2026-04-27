@@ -76,11 +76,11 @@ Full variable documentation is available in [`variables.tf`](variables.tf).
 
 ## 📸 Screenshots
 
-### Deployed Resource Group
+### Resources
 ![Resource Group](screenshots/01.png)
 
-### Hub-and-Spoke VNet Architecture
+### HUB Subnets
 ![HUB Subnets](screenshots/02.png)
 
-### Load Balancer
+### HUB Peering
 ![HUB Peering](screenshots/03.png)
