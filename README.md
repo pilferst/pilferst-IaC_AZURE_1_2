@@ -40,23 +40,22 @@ Azure CLI (logged in)
 Azure subscription
 
 
-📁 Project Structure
+## 📁 Project Structure
 
+```bash
 .
 ├── main.tf                 # Main file (resource group + module calls)
 ├── variables.tf            # Input variables
 ├── locals.tf               # Local values and tags
 ├── providers.tf
 ├── versions.tf
-├── modules/
-│   ├── vnet/               # Virtual Network + Subnets
-│   ├── peering/            # VNet Peering (Hub ↔ Spokes)
-│   ├── nsg/                # Network Security Groups
-│   ├── lb/                 # Load Balancer
-│   ├── private_dns/        # Private DNS Zone
-│   └── route_table/        # Route Tables (UDR)
-└── README.md
-
+└── modules/
+    ├── vnet/               # Virtual Network + Subnets
+    ├── peering/            # VNet Peering (Hub ↔ Spokes)
+    ├── nsg/                # Network Security Groups
+    ├── lb/                 # Load Balancer
+    ├── private_dns/        # Private DNS Zone
+    └── route_table/        # Route Tables (UDR)
 
 
 ### ⚙️ Main Variables
