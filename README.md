@@ -14,7 +14,7 @@ This project deploys a complete, production-ready **Hub-and-Spoke** networking a
 - **2 Spoke** Virtual Networks (workload networks)
 - VNet Peering between Hub and all Spokes
 - Network Security Groups (NSG) with predefined rules
-- Internal Load Balancer in the Hub
+- Internal Load Balancers in the Hub
 - Private DNS Zone
 - Route Tables with force-tunnel example
 - Consistent tagging and Azure best practices
