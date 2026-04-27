@@ -25,15 +25,29 @@ module "create_vnet_peering" {
     "hub-spoke1" = { local_key = "hub", remote_key = "spoke1" }
     "hub-spoke2" = { local_key = "hub", remote_key = "spoke2" }
   }
-
-
   source     = "./modules/create_vnet_peering"
   local_id   = local.peering_id_name[each.value.local_key].id
   local_name = local.peering_id_name[each.value.local_key].name
 
   remote_id   = local.peering_id_name[each.value.remote_key].id
   remote_name = local.peering_id_name[each.value.remote_key].name
+}
 
+module "create_lb" {
+  source = "./modules/create_lb"
+  resource_group_name = azurerm_resource_group.terraform_resource_group.name
+  location            = var.resource_group_location_main
+  count = var.number_of_lb
+  id = "${count.index}"
+  subnet_id = local.lb_subnet_id
+}
 
+module "create_private_dns_zone" {
+  source = "./modules/create_private_dns_zone"
+  resource_group_name = azurerm_resource_group.terraform_resource_group.name
+  location            = var.resource_group_location_main
+  private_dns_zone_name = var.private_dns_zone_name
+  private_dns_zone_auto_registration =var.private_dns_zone_auto_registration
+  server_subnet_id = local.server_subnet_id
 
 }

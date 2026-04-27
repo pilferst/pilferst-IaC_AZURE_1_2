@@ -37,6 +37,17 @@ variable "number_of_lb" {
   }
 }
 
+variable "private_dns_zone_name" {
+  description = "Private dns zone name"
+  type        = string
+  default     = "development.local"
+}
+
+variable "private_dns_zone_auto_registration" {
+  description = "Private dns zone auto registration"
+  type        = bool
+  default     = false
+}
 
 variable "tags" {
   description = "Additional tags to apply to all resources"

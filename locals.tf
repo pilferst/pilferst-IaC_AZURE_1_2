@@ -21,5 +21,8 @@ locals {
     name = module.create_vnet_subnet["spoke2"].vnet_name, }
 
   }
+  lb_subnet_id = module.create_vnet_subnet["hub"].subnet_ids["lb_frontend"]
+  server_subnet_id = {"spoke1" = module.create_vnet_subnet["spoke1"].vnet_id,
+                            "spoke2" = module.create_vnet_subnet["spoke2"].vnet_id} 
 
 }
