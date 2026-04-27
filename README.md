@@ -84,3 +84,39 @@ Full variable documentation is available in [`variables.tf`](variables.tf).
 
 ### HUB Peering
 ![HUB Peering](screenshots/03.png)
+
+### Spoke1 Subnets
+![Spoke1 Subnets](screenshots/04.png)
+
+### Spoke2 Subnets
+![Spoke2 Subnets](screenshots/05.png)
+
+### First load balacer
+![First load balacer](screenshots/06.png)
+
+### Fronted IP load balacer
+![Fronted IP load balacer](screenshots/07.png)
+
+### DNZ Private Zone and Peering 
+![DNZ Private Zone and Peering ](screenshots/08.png)
+
+### NSG Inbound Rules 
+![NSG Inbound Rules ](screenshots/09.png)
+
+### NSG Inbound Peering 
+![NSG Inbound Peering ](screenshots/10.png)
+
+### NSG Inbound Rules 
+![NSG Inbound Rules ](screenshots/11.png)
+
+### NSG Inbound Peering 
+![NSG Inbound Peering ](screenshots/12.png)
+
+### Force tunneling - UDR 
+![Force tunneling - UDR  ](screenshots/14.png)
+
+### Force tunneling - UDR -Peering 
+![Force tunneling - UDR  ](screenshots/15.png)
+
+### Tags 
+![Tags  ](screenshots/16.png)
