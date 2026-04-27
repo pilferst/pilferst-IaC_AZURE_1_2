@@ -28,6 +28,32 @@ graph TD
     A --> D[Spoke2 VNet]
     B <--> C
     B <--> D
-    B --> E[Load Balancer]
+    B --> E[Load Balancer subnet]
     C --> F[Frontend Subnets + NSG]
     D --> G[Backend Subnets + UDR]
+```
+🚀 Quick Start
+Prerequisites
+
+Terraform ≥ 1.10
+Azure CLI (logged in)
+Azure subscription
+
+
+📁 Project Structure
+
+.
+├── main.tf                 # Main file (resource group + module calls)
+├── variables.tf            # Input variables
+├── locals.tf               # Local values and tags
+├── providers.tf
+├── versions.tf
+├── modules/
+│   ├── vnet/               # Virtual Network + Subnets
+│   ├── peering/            # VNet Peering (Hub ↔ Spokes)
+│   ├── nsg/                # Network Security Groups
+│   ├── lb/                 # Load Balancer
+│   ├── private_dns/        # Private DNS Zone
+│   └── route_table/        # Route Tables (UDR)
+└── README.md
+
