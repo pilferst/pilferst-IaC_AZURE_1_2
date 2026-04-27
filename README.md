@@ -57,7 +57,7 @@ Azure subscription
     ├── private_dns/        # Private DNS Zone
     └── route_table/        # Route Tables (UDR)
 
-
+```
 ### ⚙️ Main Variables
 
 | Variable                  | Description                              | Default                  |
