@@ -57,3 +57,19 @@ Azure subscription
 │   └── route_table/        # Route Tables (UDR)
 └── README.md
 
+
+
+### ⚙️ Main Variables
+
+| Variable                  | Description                              | Default                  |
+|---------------------------|------------------------------------------|--------------------------|
+| `rg_name`                 | Resource Group name                      | `rg-iac-azure-1-2`      |
+| `location`                | Azure region                             | `westeurope`            |
+| `vnets`                   | Configuration of all VNets               | (see `variables.tf`)    |
+| `number_of_lb`            | Number of Load Balancers                 | `1`                     |
+| `private_dns_zone_name`   | Private DNS zone name                    | `development.local`     |
+| `nsg_rules`               | NSG security rules                       | `{}`                    |
+| `next_hop_in_ip_address`  | Next hop IP (Firewall/NVA)               | `10.0.1.5`              |
+| `tags`                    | Additional resource tags                 | `{}`                    |
+
+Full variable documentation is available in [`variables.tf`](variables.tf).
